@@ -22,7 +22,7 @@ const cardContainerStyle = {
 
 const DestinationsIndex = (props) => {
   const [destinations, setDestinations] = useState(null);
-  const [destination, setDestination] = useState(null);
+//   const [destination, setDestination] = useState(null);
   const [error, setError] = useState(false);
   const [editModalShow, setEditModalShow] = useState(false);
   const [updated, setUpdated] = useState(false);
@@ -47,6 +47,10 @@ const DestinationsIndex = (props) => {
         setError(true);
       });
   }, []);
+
+  if (error) {
+    return <p>Error!</p>
+}
 
   const { user, msgAlert } = props;
   console.log("user in props", user);
@@ -157,7 +161,7 @@ const DestinationsIndex = (props) => {
       {deleteAndEdit}
       <EditDestinationModal
         user={user}
-        destination={destination}
+        destinations={destinations}
         show={editModalShow}
         updateDestination={updateDestination}
         msgAlert={msgAlert}
