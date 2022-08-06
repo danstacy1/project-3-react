@@ -1,20 +1,20 @@
 import React, { useState } from 'react'
 import { Modal } from 'react-bootstrap'
 import DestinationForm from '../shared/DestinationForm';
+import { updateDestinationSuccess, updateDestinationFailure } from '../shared/AutoDismissAlert/messages'
 
-
-export default function EditDestinationModal(props) {
+const EditDestinationModal = (props) => {
     const { user, show, handleClose, updateDestination, msgAlert, triggerRefresh } = props
 
     const [destination, setDestination] = useState(props.destination)
     
-    console.log(destination)
+    console.log('destination in edit model', destination)
     
     const handleChange = (e) => {
         setDestination((prevDestination) => {
           let updatedValue = e.target.value;
           const updatedName = e.target.name;
-          console.log(e.target.type);
+          console.log('this is the input type', e.target.type);
 
           const updatedDestination = {
             [updatedName]: updatedValue,
@@ -28,12 +28,13 @@ export default function EditDestinationModal(props) {
 
       const handleSubmit = (e) => {
         e.preventDefault();
+        
         updateDestination(user, destination)
         .then(() => handleClose())
           .then(() =>
             msgAlert({
               heading: "oh yea!",
-              message: "success",
+              message: updateDestinationSuccess,
               variant: "success",
             })
           )
@@ -41,7 +42,7 @@ export default function EditDestinationModal(props) {
           .catch(() =>
             msgAlert({
               heading: "oh no!",
-              message: "failure",
+              message: updateDestinationFailure,
               variant: "danger",
             })
           );
@@ -64,3 +65,4 @@ export default function EditDestinationModal(props) {
   )
 }
 
+export default EditDestinationModal

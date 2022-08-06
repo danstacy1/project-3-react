@@ -1,5 +1,6 @@
 import { Form, Button } from "react-bootstrap";
 import '../../style.css'
+
 const DestinationForm = (props) => {
   const { destination, handleChange, heading, handleSubmit } = props;
 
@@ -33,15 +34,6 @@ const DestinationForm = (props) => {
                 onChange={handleChange}
                 className="mt-2"
                 style={{textAlign: 'center'}}
-              />
-              <Form.Control
-              style={{display: "none"}}
-                placeholder="When is this trip?"
-                name="schedule"
-                id="schedule"
-                value={destination.schedule}
-                onChange={handleChange}
-              
               />
               <Button type="submit" className="mt-3" size="sm">Submit</Button>
             </Form>

@@ -13,6 +13,8 @@ const messages = {
 	removeDestinationFailure: 'There was a problem removing the destination',
 	getActivityFailure: "failed to find your activity",
 	removeActivitySuccess: 'You have removed the activity',
-	removeActivityFailure: 'There was a problem removing your activity'
+	removeActivityFailure: 'There was a problem removing your activity',
+	updateDestinationSuccess: 'Destination has been updated',
+	updateDestinationFailure: 'There was a problem updating the destination',
 }
 module.exports = messages

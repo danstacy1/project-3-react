@@ -42,7 +42,7 @@ const DestinationsIndex = (props) => {
 
     useEffect(() => {
         console.log(props)
-        getAllDestinations()
+        getAllDestinations(id)
             .then(res => setDestinations(res.data.destinations))
             .catch(err => {
                 msgAlert({
@@ -60,25 +60,6 @@ const DestinationsIndex = (props) => {
     console.log("user in props", user);
     // destructuring to get the id value from our route parameters
     
-    useEffect(() => {
-        getOneDestination(id)
-        .then((res) => {
-            setDestination(res.data.destination)
-        })
-        .catch((err) => {
-            msgAlert({
-                heading: "Error getting destination",
-                message: messages.getDestinationsFailure,
-                variant: "danger",
-            });
-            navigate("/");
-            //navigate back to the home page if there's an error fetching
-        });
-    }, [updated]);
-    
-    if (error) {
-        return <p>Error!</p>
-    }
 
     // If snowboards haven't been loaded yet, show a loading message
     if (!destinations) {
@@ -141,46 +122,49 @@ const DestinationsIndex = (props) => {
               </>
             ) : null}
             </Card.Body>
-            
     </Card>
 ))
 
-const deleteAndEdit =()=>{
-    <Card.Footer>
-    <Button>Edit</Button>
-{/* {user &&  destination.owner === user._id ? ( */}
-    <>
-        <Button
-        onClick={() => setEditModalShow(true)}
-        className="m-2"
-        variant="warning"
-        >
-        Edit Destination
-        </Button>
-        <Button
-        onClick={() => removeTheDestination()}
-        className="m-2"
-        variant="danger"
+
+//////////////////////////////////////////////////////////
+// Not sure what this is
+//////////////////////////////////////////////////////////
+// const deleteAndEdit =()=>{
+//     <Card.Footer>
+//     <Button>Edit</Button>
+// {/* {user &&  destination.owner === user._id ? ( */}
+//     <>
+//         <Button
+//         onClick={() => setEditModalShow(true)}
+//         className="m-2"
+//         variant="warning"
+//         >
+//         Edit Destination
+//         </Button>
+//         <Button
+//         onClick={() => removeTheDestination()}
+//         className="m-2"
+//         variant="danger"
         
-        >
-        Delete
-        </Button>
-    </>
-{/* ) : null}  */}
-</Card.Footer>
-}
+//         >
+//         Delete
+//         </Button>
+//     </>
+// {/* ) : null}  */}
+// </Card.Footer>
+// }
 
     return (
         <div style={ cardContainerStyle }>
             { destinationCards }
-            { deleteAndEdit }
+            {/* { deleteAndEdit } */}
             <EditDestinationModal
                 user={user}
                 destination={destination}
                 show={editModalShow}
                 updateDestination={updateDestination}
                 msgAlert={msgAlert}
-                triggerRefresh={() => setUpdated((prev) => !prev)}
+                triggerRefresh={() => setUpdated(prev => !prev)}
                 handleClose={() => setEditModalShow(false)}
             />
         </div>
