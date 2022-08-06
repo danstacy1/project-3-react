@@ -20,7 +20,7 @@ const DestinationForm = (props) => {
               <Form.Control
                 placeholder="Destination name"
                 name="name"
-                id="name"
+                id={destination.name}
                 value={destination.name}
                 onChange={handleChange}
                 className="mt-2"

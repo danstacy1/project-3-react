@@ -27,6 +27,7 @@ const DestinationsIndex = (props) => {
   const [editModalShow, setEditModalShow] = useState(false);
   const [updated, setUpdated] = useState(false);
   const { triggerRefresh } = props;
+  
 
   //const { id } = useParams()
   const navigate = useNavigate();
@@ -77,9 +78,6 @@ const DestinationsIndex = (props) => {
           console.log(res)
           return setDestinations(res.data.destinations)
         })
-      //then navigate to index
-    //   .then(() => triggerRefresh())
-      // on failure send a failure message
       .catch((err) => {
         msgAlert({
           heading: "Error removing destination",
@@ -110,7 +108,9 @@ const DestinationsIndex = (props) => {
         </Link>
         {user && destination.owner === user._id ? (
           <>
+          <br></br>
             <Button
+            destination={destination}
               onClick={() => setEditModalShow(true)}
               className="m-2"
               variant="warning"
@@ -128,6 +128,15 @@ const DestinationsIndex = (props) => {
           </>
         ) : null}
       </Card.Body>
+      <EditDestinationModal
+        user={user}
+        destination={destination}
+        show={editModalShow}
+        updateDestination={updateDestination}
+        msgAlert={msgAlert}
+        triggerRefresh={() => setUpdated((prev) => !prev)}
+        handleClose={() => setEditModalShow(false)}
+      /> 
     </Card>
   ));
 
@@ -159,15 +168,6 @@ const DestinationsIndex = (props) => {
     <div style={cardContainerStyle}>
       {destinationCards}
       {deleteAndEdit}
-      <EditDestinationModal
-        user={user}
-        destinations={destinations}
-        show={editModalShow}
-        updateDestination={updateDestination}
-        msgAlert={msgAlert}
-        triggerRefresh={() => setUpdated((prev) => !prev)}
-        handleClose={() => setEditModalShow(false)}
-      />
     </div>
   );
 };
