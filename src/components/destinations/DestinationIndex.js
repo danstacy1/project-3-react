@@ -110,7 +110,7 @@ const DestinationsIndex = (props) => {
           <>
           <br></br>
             <Button
-            destination={destination}
+           
               onClick={() => setEditModalShow(true)}
               className="m-2"
               variant="warning"
@@ -125,10 +125,7 @@ const DestinationsIndex = (props) => {
             >
               Delete
             </Button>
-          </>
-        ) : null}
-      </Card.Body>
-      <EditDestinationModal
+            <EditDestinationModal
         user={user}
         destination={destination}
         show={editModalShow}
@@ -137,37 +134,19 @@ const DestinationsIndex = (props) => {
         triggerRefresh={() => setUpdated((prev) => !prev)}
         handleClose={() => setEditModalShow(false)}
       /> 
+          </>
+        ) : null}
+      </Card.Body>
+
     </Card>
   ));
 
-  const deleteAndEdit = () => {
-    <Card.Footer>
-      <Button>Edit</Button>
-      {/* {user &&  destination.owner === user._id ? ( */}
-      <>
-        <Button
-          onClick={() => setEditModalShow(true)}
-          className="m-2"
-          variant="warning"
-        >
-          Edit Destination
-        </Button>
-        <Button
-          onClick={() => removeDestination()}
-          className="m-2"
-          variant="danger"
-        >
-          Delete
-        </Button>
-      </>
-      {/* ) : null}  */}
-    </Card.Footer>;
-  };
 
   return (
     <div style={cardContainerStyle}>
       {destinationCards}
-      {deleteAndEdit}
+ 
+
     </div>
   );
 };
