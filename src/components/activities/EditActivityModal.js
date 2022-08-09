@@ -15,15 +15,6 @@ const EditActivityModal = (props) => {
         setActivity(prevActivity => {
             let updatedValue = e.target.value
             const updatedName = e.target.name
-
-            // console.log('this is the input type', e.target.type)
-            // this handles the checkbox, changing on to true etc
-            // if (name === "isSqueaky" && e.target.checked) {
-            //     value = true
-            // } else if (name === "isSqueaky" && !e.target.checked) {
-            //     value = false
-            // }
-
             const updatedActivity = {
                 [updatedName]: updatedValue
             }

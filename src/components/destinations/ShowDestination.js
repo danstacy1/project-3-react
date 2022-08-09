@@ -54,13 +54,7 @@ const ShowDestination = (props) => {
 console.log(props)
   const { id } = useParams();
   const navigate = useNavigate();
-  // useNavigate returns a function
-  // we can call that function to redirect the user wherever we want to
-
   const { user, msgAlert } = props;
-  // console.log("user in props", user);
-  // console.log("the destination in showDestination", destination);
-  // // destructuring to get the id value from our route parameters
 
   useEffect(() => {
     getOneDestination(id)
@@ -78,9 +72,6 @@ console.log(props)
         //navigate back to the home page if there's an error fetching
       });
   }, [updated]);
-
-  // here we'll declare a function that runs which will remove the destination
-  // this function's promise chain should send a message, and then go somewhere
 
   const removeTheDestination = () => {
     removeDestination(user, destination._id)
@@ -105,28 +96,11 @@ console.log(props)
         });
       });
   };
-  //   let activityCards;
-  //   if (destination) {
-  //     if (destination.activities.length > 0) {
-  //       activityCards = destination.activities.map((activity) => (
-  //         <ShowActivity
-  //           key={activity._id}
-  //           activity={activity}
-  //           destination={destination}
-  //           user={user}
-  //           msgAlert={msgAlert}
-  //           triggerRefresh={() => setUpdated((prev) => !prev)}
-  //         />
-  //       ));
-  //     }
-  //   }
 
   if (!destination) {
     return <LoadingScreen />;
   }
 
-  // const activityList = activity.map(activity => (
-  // <Link to={`/activities/${activity._id}`}> { activity.name }</Link>))
   const actList = destination.activities.map((a) => (
     <li>
       <Link
@@ -228,9 +202,7 @@ console.log(props)
         {/* </div> */}
       </Container>
 
-      {/* <Container style={cardContainerLayout}>
-                {activityCards}
-            </Container>  */}
+
       <EditDestinationModal
         user={user}
         destination={destination}

@@ -107,7 +107,6 @@ const SearchActivityModal = (props) => {
         });
       })
       .then(() => triggerRefresh())
-      // if there is an error, tell the user about it
       .catch(() =>
         msgAlert({
           heading: "Oh No!",
@@ -124,10 +123,6 @@ const SearchActivityModal = (props) => {
       <h3 style={{ textAlign: "center", paddingTop: "8px" }}>Search {value}</h3>
       <Modal.Body>
         <Form>
-          {/* <Dropdown>
-          <Dropdown.Toggle variant="success" id="dropdown-basic">
-            Dropdown Button
-          </Dropdown.Toggle> */}
           <DropdownButton onSelect={handleSelect} variant="info">
             <Dropdown.Item eventKey="important tourist attraction">
               important tourist attraction
@@ -138,38 +133,25 @@ const SearchActivityModal = (props) => {
               natural tourist attraction
             </Dropdown.Item>
             <Dropdown.Item eventKey="statues">statues</Dropdown.Item>
-            <Dropdown.Item eventKey="sushi">amanda's recommendations</Dropdown.Item>
+            <Dropdown.Item eventKey="sushi">
+              amanda's recommendations
+            </Dropdown.Item>
             <Dropdown.Item eventKey="donut">timms suggestion</Dropdown.Item>
             <Dropdown.Item eventKey="mediterranean">
               james' recommendations
             </Dropdown.Item>
-            <Dropdown.Item eventKey="breweries">dan's recommentations</Dropdown.Item>
+            <Dropdown.Item eventKey="breweries">
+              dan's recommentations
+            </Dropdown.Item>
             <Dropdown.Item eventKey="dispensaries">dispensaries</Dropdown.Item>
             <Dropdown.Item eventKey="sports">sports</Dropdown.Item>
             <Dropdown.Item eventKey="gas stations">gas stations</Dropdown.Item>
             <Dropdown.Item eventKey="coffee">coffee</Dropdown.Item>
           </DropdownButton>
-          {/* </Dropdown> */}
         </Form>
-        {/* {user && destination.owner === user._id ? (
-          <>
-            <Button onClick={() => 
-            {
-                setRecommendedListShow(true)
-                
-            
-            }}
-            
-            >Submit</Button>
-          </>
-        ) : null} */}
-        <ul style={{ listStyle: "none" }}>
-          {items}
-          {/* <RecommendedList  style={{display:"none"}} items={items} /> */}
-        </ul>
+        <ul style={{ listStyle: "none" }}>{items}</ul>
       </Modal.Body>
       <NewRecActivityModal
-        //key={i.id}
         user={user}
         destination={destination}
         show={recActivityModalShow}

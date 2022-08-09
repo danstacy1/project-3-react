@@ -65,14 +65,7 @@ const NewRecActivityModal = (props) => {
       )
       .then(() => handleClose())
       .then(() => triggerRefresh());
-    // if there is an error, tell the user about it
-    // .catch(() =>
-    //     msgAlert({
-    //         heading: 'Oh No!',
-    //         message: 'Something went wrong, please try again',
-    //         variant: 'danger'
-    //     })
-    // )
+
   };
 
   return (

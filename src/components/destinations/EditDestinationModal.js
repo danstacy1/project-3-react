@@ -41,7 +41,6 @@ export default function EditDestinationModal(props) {
 
         updateDestination(user, destination)
           .then(() => handleClose())
-          // .then(res => { navigate(`/destinations/${res.data.destination._id}`)})
           .then(() =>
             msgAlert({
               heading: "oh yea!",
@@ -59,22 +58,6 @@ export default function EditDestinationModal(props) {
           );
       };
 
-// const forms = destinations.map((destination) => (
-//   <Modal show={show} onHide={handleClose}>
-//   <Modal.Header closeButton />
-//   <Modal.Body>
-//       <DestinationForm 
-//       yp={console.log(destination)}
-//       destination={destination}
-//       handleChange={handleChange}
-//       handleSubmit={handleSubmit}
-//       heading="Update Destination"
-//       />
-//   </Modal.Body>
-// </Modal>
-
-// ))
-//console.log(forms)
   return (
     <>
     
@@ -92,9 +75,7 @@ export default function EditDestinationModal(props) {
 
     
     </>
-    // <>
-    // {forms}
-    // </>
+
   )
 }
 

@@ -15,11 +15,6 @@ import {
   } from "../../api/destinations";
 // import ShowActivity from "../activities/ShowActivity";
 
-
-// We need to get the activity's id from the parameters
-// Then we need to make a request to the api
-// Then we need to display the results in this component
-
 // we'll use a style object to lay out the activity cards
 const cardContainerLayout = {
     display: 'flex',
@@ -83,24 +78,6 @@ const ShowActivity = (props) => {
                 })
             })
     }
-    // //////////////////////////////////////////////
-    // // I dont think we want this part for our app.
-    // //////////////////////////////////////////////
-    // let activityCards
-    // if (destination) {
-    //     if (destination.activities.length > 0) {
-    //         activityCards = destination.activities.map(activity => (
-    //             <ShowActivity 
-    //                 key={activity._id}
-    //                 activity={activity}
-    //                 destination={destination}
-    //                 user={user}
-    //                 msgAlert={msgAlert}
-    //                 triggerRefresh={() => setUpdated(prev => !prev)}
-    //             />
-    //         ))
-    //     }
-    // }
 
     if (!activity) {
         return <LoadingScreen />
@@ -144,24 +121,7 @@ const ShowActivity = (props) => {
             </Card.Text>
             <hr />
          
-            {/* <Container className="fluid">
-                <Card>
-                    <Card.Header>{ activity.name }</Card.Header>
-                    <Card.Body>
-                        <Card.Text>
-                            <div><small>Schedule: { activity.schedule }</small></div> */}
-                            {/* <div><small>Type: { activity.type }</small></div>
-                            <div><small>
-                                Adoptable: { activity.adoptable ? 'yes' : 'no'}
-                            </small></div> */}
-                        {/* </Card.Text>
-                    </Card.Body>*/}
-                   
-                         {/* <Button onClick={() => setActivityModalShow(true)}
-                            className="m-2" variant="info"
-                        >
-                            Give {activity.name} a activity!
-                        </Button>  */}
+
                         {
                             // user && activity.owner === user._id 
                             // ?
